@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Jonas Gessner. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 #import "JGProgressHUD-Defines.h"
 
 #import "JGProgressHUDAnimation.h"
@@ -52,20 +55,20 @@
 @end
 
 /**
- A HUD to indicate progress, success, error, warnings or other notifications to the user.
- @note Remember to call every method from the main thread! UIKit => main thread!
+ A HUD view to indicate progress, success, error, warnings or other notifications to the user.
+ @note Remember to call every method from the main thread! UIKit = always main thread!
  @attention This applies only to iOS 8 and higher: You may not add JGProgressHUD to a view which has an alpha value < 1.0 or to a view which is a subview of a view with an alpha value < 1.0.
  */
 @interface JGProgressHUD : UIView
 
 /**
- Designated initializer.
+ Always initialize JGProgressHUD using this method or it's convenience method @c progressHUDWithStyle:.
  @param style The appearance style of the HUD.
  */
 - (instancetype)initWithStyle:(JGProgressHUDStyle)style;
 
 /**
- Convenience initializer.
+ Convenience method to initialize a new HUD.
  @param style The appearance style of the HUD.
  */
 + (instancetype)progressHUDWithStyle:(JGProgressHUDStyle)style;
@@ -220,9 +223,9 @@
 
 
 
-////////////////
-// Presenting //
-////////////////
+/////////////
+// Showing //
+/////////////
 
 
 /**
